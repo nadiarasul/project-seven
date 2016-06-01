@@ -10,7 +10,7 @@
 @import 'normalize';
 @import 'typography';
 @import 'navigation';
-@import 'sidebar';
+// @import 'sidebar';
 @import 'comments';
 @import 'footer';
 /*
@@ -28,13 +28,13 @@ body {
 }
 
 .container {
-	max-width: 1200px;
+	max-width: 1100px;
 	margin: 0 auto;
 }
 
 .content {
 	float: left;
-	width: 65%;
+	width: 100%;
 	margin-right: 5%;
 }
 
@@ -42,9 +42,20 @@ body {
 	width: 100%;
 }
 
+header{
+	height:100vh;
+}
 
-
-
+input[type=submit]{
+	background: $gray;
+	color: $white;
+	border:none;
+	padding: 10px 25px;
+	transition: all 0.3s ease;
+	&:hover{
+		color:$pink;
+	}
+}
 
 
 

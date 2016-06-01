@@ -1,8 +1,15 @@
+/* colors */
+$pink: #ED145B;
+$gray: #3C3C3C;
+$white: whitesmoke;
+
+/* links */
+
 a {
-	color: #BA209B;
+	color: $pink;
 	text-decoration: none;
 	&:hover {
-		color: #D424B1;
+		color: $pink;
 	}
 }
 

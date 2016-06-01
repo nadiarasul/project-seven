@@ -13,18 +13,25 @@
 
 <body <?php body_class(); ?>>
 
-<header>
+<header style=" background-image: url('<?php echo get_featured_image_url($post); ?>')">
   <div class="container">
+  <div class="main-header"
+  <div class="site-branding">
     <h1>
       <a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
         <?php bloginfo( 'name' ); ?>
       </a>
     </h1>
+   </div> 
 
     <?php wp_nav_menu( array(
-      'container' => false,
+      'container' => '<nav>',
       'theme_location' => 'primary'
     )); ?>
+  </div>
+
+         <h2><?php the_title(); ?></h2>
+
   </div> <!-- /.container -->
 </header><!--/.header-->
 

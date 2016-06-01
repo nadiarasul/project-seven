@@ -276,3 +276,11 @@ function get_post_parent($post) {
 		return $post->ID;
 	}
 }
+
+/* Custom function to get post thumbnail url */
+
+function get_featured_image_url($currentPost){
+	$image_id = get_post_thumbnail_id($currentPost->ID);
+	$image_url = wp_get_attachment_url($image_id);
+	return $image_url;
+} 
