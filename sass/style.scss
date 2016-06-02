@@ -7,8 +7,10 @@
 * Author URI: http://hackeryou.com
 */
 
+@import 'variables';
 @import 'normalize';
 @import 'typography';
+@import 'header';
 @import 'navigation';
 // @import 'sidebar';
 @import 'comments';
@@ -24,7 +26,7 @@ img {
 }
 
 body {
-	color: #333;
+	color: $gray;
 }
 
 .container {
@@ -42,10 +44,6 @@ body {
 	width: 100%;
 }
 
-header{
-	height:100vh;
-}
-
 input[type=submit]{
 	background: $gray;
 	color: $white;
@@ -56,6 +54,41 @@ input[type=submit]{
 		color:$pink;
 	}
 }
+
+
+/*
+====================================
+Homepage Styling
+====================================
+*/
+.work-info,
+.portfolio{
+	text-align:center;
+}
+.work-info{
+	width:60%;
+	margin:60px auto;
+
+}
+.portfolio {
+	width:33.33%;
+	float:left;
+}
+.none{
+	display:none;
+}
+.home-post{
+	
+}
+
+
+
+
+
+
+
+
+
 
 
 

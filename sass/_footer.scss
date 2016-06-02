@@ -2,4 +2,15 @@ footer {
 	clear: both;
 	background:$gray;
 	color:$white;
+	text-align:center;
+	ul {
+		list-style:none;
+	}
+}
+.social-links{
+	background:lighten($gray, 30);
+	padding: 2% 0;
+}
+.footer-bottom{
+	padding:3% 0;
 }

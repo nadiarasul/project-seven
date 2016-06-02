@@ -1,6 +1,16 @@
 <footer>
-  <div class="container">
-    <p>&copy; HackerYou <?php echo date('Y'); ?></p>
+   <div class="social-links">
+	   <div class="container">   	
+	   	  <?php wp_nav_menu( array(
+	        'container' => '<nav>',
+	        'theme_location' => 'footer'
+	      )); ?>
+	   </div>
+   </div>
+  <div class="container footer-bottom">
+    <ul class="address">
+		<?php  dynamic_sidebar( 'footer-widget-area' ); ?>
+	</ul>
   </div>
 </footer>
 

@@ -12,25 +12,43 @@
 
 
 <body <?php body_class(); ?>>
+    <?php if (is_page()) { ?>
+        <header style="background-image: url('<?php echo get_featured_image_url($post); ?>')">
+    <?php } else { ?>
+      <?php $image_id = get_post_thumbnail_id(get_option('page_for_posts'));
+              $image_url = wp_get_attachment_url($image_id);
+         ?>
+      <header style="background-image: url('<?php echo $image_url; ?>')">
 
-<header style=" background-image: url('<?php echo get_featured_image_url($post); ?>')">
+    <?php } ?>
+
   <div class="container">
-  <div class="main-header"
-  <div class="site-branding">
-    <h1>
-      <a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
-        <?php bloginfo( 'name' ); ?>
-      </a>
-    </h1>
-   </div> 
+    <div class="main-header">
+          <h1>
+            <a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
+              <?php bloginfo( 'name' ); ?>
+            </a>
+          </h1>
+      
 
-    <?php wp_nav_menu( array(
-      'container' => '<nav>',
-      'theme_location' => 'primary'
-    )); ?>
-  </div>
+      <?php wp_nav_menu( array(
+        'container' => '<nav>',
+        'theme_location' => 'primary'
+      )); ?>
+    </div>
 
-         <h2><?php the_title(); ?></h2>
+    <?php if (is_front_page()) { ?>
+        <div class="header-text">      
+           <h2><?php the_title(); ?></h2>
+           <h2><?php the_field('main_tagline'); ?></h2>
+            <button><a href="<?php the_field('page_link'); ?>"></a><?php the_field('page_link_title'); ?></button> 
+          </div>
+    <?php } else { ?>
+        <div class="header-text"> 
+          <h2><?php the_title(); ?></h2>
+        </div>
+    <?php } ?>
+
 
   </div> <!-- /.container -->
 </header><!--/.header-->

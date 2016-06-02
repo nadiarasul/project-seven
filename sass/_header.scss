@@ -1,0 +1,33 @@
+header{
+	height:100vh;
+	color:white;
+	.container{
+		height:100vh;
+		display:flex;
+		flex-direction:column;
+		justify-content:space-between;
+		align-items:center;
+		text-align:center;
+	}
+	background-size:cover;
+	background-position: center center;
+	background-repeat:no-repeat;
+	.header-text{
+		margin:auto;
+	}
+}
+
+.main-header{
+	width:100%;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	a {
+	color: white;
+	padding: 10px;
+		&:hover {
+			color: $pink;
+		}		
+	}	
+
+}
