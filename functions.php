@@ -13,6 +13,7 @@ function theme_setup() {
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size(120, 90, true);
 	add_image_size('square', 150, 150, true);
+	add_image_size('rectangle', 400, 267, true);
 
 
 	// Add default posts and comments RSS feed links to head
@@ -47,6 +48,9 @@ function hackeryou_styles(){
 	wp_enqueue_style('style', get_stylesheet_uri() );
 
 	wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+
+	wp_enqueue_style('opensans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,300');
+	wp_enqueue_style('featherlight', 'https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.4.1/featherlight.min.css');
 }
 
 add_action( 'wp_enqueue_scripts', 'hackeryou_styles');
@@ -135,7 +139,7 @@ add_filter( 'excerpt_length', 'hackeryou_excerpt_length' );
  * Returns a "Continue Reading" link for excerpts
  */
 function hackeryou_continue_reading_link() {
-	return ' <a href="'. get_permalink() . '">Continue reading <span class="meta-nav">&rarr;</span></a>';
+	return ' <p><a href="'. get_permalink() . '">Continue reading <span class="meta-nav">&rarr;</span></a></p>';
 }
 
 /**
@@ -205,17 +209,33 @@ if ( ! function_exists( 'hackeryou_posted_on' ) ) :
  * Prints HTML with meta information for the current post—date/time and author.
  */
 function hackeryou_posted_on() {
-	printf('<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s',
+	printf('%2$s <span class="meta-sep"> -  </span> %3$s',
 		'meta-prep meta-prep-author',
-		sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
-			get_permalink(),
-			esc_attr( get_the_time() ),
-			get_the_date()
-		),
 		sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
 			get_author_posts_url( get_the_author_meta( 'ID' ) ),
 			sprintf( esc_attr( 'View all posts by %s'), get_the_author() ),
 			get_the_author()
+		),
+		sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
+			get_permalink(),
+			esc_attr( get_the_time() ),
+			get_the_date()
+		)
+	);
+}
+endif;
+
+if ( ! function_exists( 'dated_posted' ) ) :
+/**
+ * Prints HTML with meta information for the current post—date/time and author.
+ */
+function date_posted() {
+	printf('<span class="%1$s">on</span> %2$s',
+		'meta-prep meta-prep-author',
+		sprintf( '<span class="entry-date">%3$s</span>',
+			get_permalink(),
+			esc_attr( get_the_time() ),
+			get_the_date()
 		)
 	);
 }
@@ -295,3 +315,37 @@ function get_featured_image_url($currentPost){
 	$image_url = wp_get_attachment_url($image_id);
 	return $image_url;
 } 
+
+add_filter('show_admin_bar', '__return_false');
+
+/* Remove 'says' from comment */
+function mytheme_comment($comment, $args, $depth) {
+   $GLOBALS['comment'] = $comment; ?>
+   <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
+     <div id="comment-<?php comment_ID(); ?>">
+     <footer class="comment-meta">
+	  	<div class="avatar">
+	    	 <?php echo get_avatar($comment,$size='34',$default='<path_to_url>' ); ?>
+		</div>
+	    <div class="comment-author vcard">
+	        <?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?>
+	    </div>
+      <?php if ($comment->comment_approved == '0') : ?>
+         <em><?php _e('Your comment is awaiting moderation.') ?></em>
+         <br />
+      <?php endif; ?>
+
+	    <div class="comment-metadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'),'  ','') ?>
+	    </div>
+      </footer>
+
+      <div class="comment-body">
+      <?php comment_text() ?>
+
+      <div class="reply">
+         <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+      </div>
+      </div>
+     </div>
+<?php
+        }

@@ -1,6 +1,7 @@
 header{
 	height:100vh;
-	color:white;
+	color:$white;
+	padding-top: 2rem;
 	.container{
 		height:100vh;
 		display:flex;
@@ -14,6 +15,10 @@ header{
 	background-repeat:no-repeat;
 	.header-text{
 		margin:auto;
+		h2{
+		 	font-size:8rem;
+			font-weight: 300;
+		}
 	}
 }
 
@@ -22,12 +27,36 @@ header{
 	display:flex;
 	justify-content:space-between;
 	align-items:center;
+	text-transform: uppercase;
 	a {
 	color: white;
 	padding: 10px;
+	font-size:1.3rem;
+	letter-spacing: 2px;
 		&:hover {
-			color: $pink;
+			color: $green;
 		}		
 	}	
+	h1 a{
+		font-size:2.4rem;
+	    letter-spacing: 3px;
+	    font-weight: 500;
+	    &:hover{
+			color:$white;
+	    }
+	}
 
 }
+
+.site-branding{
+	    text-align: left;
+}
+
+
+
+
+
+
+
+
+

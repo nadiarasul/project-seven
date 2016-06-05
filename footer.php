@@ -11,6 +11,7 @@
     <ul class="address">
 		<?php  dynamic_sidebar( 'footer-widget-area' ); ?>
 	</ul>
+  <div class="copyright"><p>Designed and developed by Nadia Rasul</p></div>
   </div>
 </footer>
 
@@ -24,5 +25,8 @@
 </script>
 
 <?php wp_footer(); ?>
+
+<script src="https://cdn.rawgit.com/noelboss/featherlight/1.4.1/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
 </body>
 </html>
