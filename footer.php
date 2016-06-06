@@ -8,6 +8,10 @@
 	   </div>
    </div>
   <div class="container footer-bottom">
+    <div class="search">
+      <?php  get_search_form(); ?>
+    </div>
+
     <ul class="address">
 		<?php  dynamic_sidebar( 'footer-widget-area' ); ?>
 	</ul>

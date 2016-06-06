@@ -85,6 +85,10 @@ function hackeryou_scripts() {
     null, // version number
     true //load in footer
   );
+	if (is_page('contact')) {
+	  	wp_enqueue_script( 'google-map', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), '3', true );
+		wp_enqueue_script( 'google-map-init', get_template_directory_uri() . '/js/googlemap.js', array('google-map', 'jquery'), '0.1', true );
+	}	
 }
 
 add_action( 'wp_enqueue_scripts', 'hackeryou_scripts');
