@@ -19,7 +19,6 @@
 
 			<?php endif; ?>
 		</div> <!-- /.content -->
-
 	</div><!-- /.container -->
 </div> <!-- /.main -->
 

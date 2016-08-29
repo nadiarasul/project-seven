@@ -62,8 +62,6 @@
         <h1><?php the_field('page_tagline'); ?></h1>
       </div>
     <?php } ?>
-
-
   </div> <!-- /.container -->
 </header><!--/.header-->
 

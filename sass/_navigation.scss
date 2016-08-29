@@ -3,9 +3,9 @@
 	justify-content:space-between;
 	align-items:center;
   z-index: 1;
-	a{
-		color:$white;
-	}
+  a{
+    color:$white;
+  }
   h1 a {
     padding:0;
   }
@@ -15,22 +15,22 @@
   input[type=search]::-webkit-input-placeholder {
    color: $white;
    opacity:0.6;
-  }
+ }
 
-  input[type=search]:-moz-placeholder { /* Firefox 18- */
-   color: $white;
-   opacity:0.7;
-  }
+ input[type=search]:-moz-placeholder { /* Firefox 18- */
+  color: $white;
+  opacity:0.7;
+}
 
-  input[type=search]::-moz-placeholder {  /* Firefox 19+ */
-   color: $white;  
-   opacity:0.7;   
-  }
+input[type=search]::-moz-placeholder {  /* Firefox 19+ */
+  color: $white;  
+  opacity:0.7;   
+}
 
-  input[type=search]:-ms-input-placeholder {  
-   color: $white; 
-   opacity:0.7;
-  }
+input[type=search]:-ms-input-placeholder {  
+ color: $white; 
+ opacity:0.7;
+}
 
 }
 

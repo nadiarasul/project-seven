@@ -4,7 +4,7 @@
 
 if ( ! function_exists( 'theme_setup' ) ):
 
-function theme_setup() {
+	function theme_setup() {
 
 	/* This theme uses post thumbnails (aka "featured images")
 	*  all images will be cropped to thumbnail size (below), as well as
@@ -25,7 +25,7 @@ function theme_setup() {
 	register_nav_menus( array(
 		'primary' => 'Primary Navigation',
 		'footer' => 'Footer Navigation'
-	) );
+		) );
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments
@@ -33,7 +33,7 @@ function theme_setup() {
 	 */
 	add_theme_support( 'html5', array(
 		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
-	) );
+		) );
 
 }
 endif;
@@ -63,31 +63,32 @@ function hackeryou_scripts() {
 
 	//Don't use WordPress' local copy of jquery, load our own version from a CDN instead
 	wp_deregister_script('jquery');
-  wp_enqueue_script(
-  	'jquery',
-  	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
+	wp_enqueue_script(
+		'jquery',
+		"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
   	false, //dependencies
   	null, //version number
   	true //load in footer
-  );
+  	);
 
-  wp_enqueue_script(
+	wp_enqueue_script(
     'plugins', //handle
     get_template_directory_uri() . '/js/plugins.js', //source
     false, //dependencies
     null, // version number
     true //load in footer
-  );
+    );
 
-  wp_enqueue_script(
+	wp_enqueue_script(
     'scripts', //handle
     get_template_directory_uri() . '/js/main.min.js', //source
     array( 'jquery', 'plugins' ), //dependencies
     null, // version number
     true //load in footer
-  );
+    );
+
 	if (is_page('contact')) {
-	  	wp_enqueue_script( 'google-map', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), '3', true );
+		wp_enqueue_script( 'google-map', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), '3', true );
 		wp_enqueue_script( 'google-map-init', get_template_directory_uri() . '/js/googlemap.js', array('google-map', 'jquery'), '0.1', true );
 	}	
 }
@@ -125,11 +126,11 @@ add_filter( 'wp_title', 'hackeryou_wp_title', 10, 2 );
 /*
   Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  */
-function hackeryou_page_menu_args( $args ) {
-	$args['show_home'] = true;
-	return $args;
-}
-add_filter( 'wp_page_menu_args', 'hackeryou_page_menu_args' );
+  function hackeryou_page_menu_args( $args ) {
+  	$args['show_home'] = true;
+  	return $args;
+  }
+  add_filter( 'wp_page_menu_args', 'hackeryou_page_menu_args' );
 
 
 /*
@@ -183,7 +184,7 @@ function hackeryou_widgets_init() {
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
-	) );
+		) );
 	// Footer info widget
 	register_sidebar( array(
 		'name' => 'Footer Widget Area',
@@ -193,8 +194,7 @@ function hackeryou_widgets_init() {
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="none">',
 		'after_title' => '</h3>',
-	) );	
-
+		) );	
 }
 
 add_action( 'widgets_init', 'hackeryou_widgets_init' );
@@ -220,13 +220,13 @@ function hackeryou_posted_on() {
 			get_author_posts_url( get_the_author_meta( 'ID' ) ),
 			sprintf( esc_attr( 'View all posts by %s'), get_the_author() ),
 			get_the_author()
-		),
+			),
 		sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
 			get_permalink(),
 			esc_attr( get_the_time() ),
 			get_the_date()
-		)
-	);
+			)
+		);
 }
 endif;
 
@@ -241,8 +241,8 @@ function date_posted() {
 			get_permalink(),
 			esc_attr( get_the_time() ),
 			get_the_date()
-		)
-	);
+			)
+		);
 }
 endif;
 
@@ -267,7 +267,7 @@ function hackeryou_posted_in() {
 		$tag_list,
 		get_permalink(),
 		the_title_attribute( 'echo=0' )
-	);
+		);
 }
 endif;
 
@@ -325,32 +325,32 @@ add_filter('show_admin_bar', '__return_false');
 
 /* Remove 'says' from comment */
 function mytheme_comment($comment, $args, $depth) {
-   $GLOBALS['comment'] = $comment; ?>
-   <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
-     <div id="comment-<?php comment_ID(); ?>">
-     <footer class="comment-meta">
-	  	<div class="avatar">
-	    	 <?php echo get_avatar($comment,$size='34',$default='<path_to_url>' ); ?>
+	$GLOBALS['comment'] = $comment; ?>
+	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
+		<div id="comment-<?php comment_ID(); ?>">
+			<footer class="comment-meta">
+				<div class="avatar">
+					<?php echo get_avatar($comment,$size='34',$default='<path_to_url>' ); ?>
+				</div>
+				<div class="comment-author vcard">
+					<?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?>
+				</div>
+				<?php if ($comment->comment_approved == '0') : ?>
+				<em><?php _e('Your comment is awaiting moderation.') ?></em>
+				<br />
+			<?php endif; ?>
+
+			<div class="comment-metadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'),'  ','') ?>
+			</div>
+		</footer>
+
+		<div class="comment-body">
+			<?php comment_text() ?>
+
+			<div class="reply">
+				<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+			</div>
 		</div>
-	    <div class="comment-author vcard">
-	        <?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?>
-	    </div>
-      <?php if ($comment->comment_approved == '0') : ?>
-         <em><?php _e('Your comment is awaiting moderation.') ?></em>
-         <br />
-      <?php endif; ?>
-
-	    <div class="comment-metadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'),'  ','') ?>
-	    </div>
-      </footer>
-
-      <div class="comment-body">
-      <?php comment_text() ?>
-
-      <div class="reply">
-         <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-      </div>
-      </div>
-     </div>
-<?php
-        }
+	</div>
+	<?php
+}

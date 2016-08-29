@@ -9,10 +9,8 @@
       	
         <?php the_content(); ?>
 		
-		
       <?php endwhile; // end the loop?>
     </div> <!-- /,content -->
-
   </div> <!-- /.container -->
 </div> <!-- /.main -->
 
