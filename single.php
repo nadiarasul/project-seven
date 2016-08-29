@@ -5,9 +5,7 @@
     <div class="content">
       <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-        <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-          
-
+        <div id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
           <div class="entry-meta">
             <?php hackeryou_posted_on(); ?>
           </div><!-- .entry-meta -->
@@ -17,7 +15,7 @@
             <?php wp_link_pages(array(
               'before' => '<div class="page-link"> Pages: ',
               'after' => '</div>'
-            )); ?>
+              )); ?>
           </div><!-- .entry-content -->
 
           <div class="entry-utility">
@@ -33,7 +31,7 @@
 
         <?php comments_template( '', true ); ?>
 
-      <?php endwhile; // end of the loop. ?>
+        <?php endwhile; // end of the loop. ?>
 
     </div> <!-- /.content -->
 

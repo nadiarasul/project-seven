@@ -6,7 +6,7 @@
 		padding:0;
 	}
 	.navigation {
-	padding: 0 0 18px;
+		padding: 0 0 18px;
 	}
 }
 
@@ -65,9 +65,9 @@ h3 {
 		font-style: normal;
 		font-weight: 700;
 		font-size: 2rem;
-	    line-height: 34px;
-	    margin: 0 10px;
-	    font-weight: 700;
+		line-height: 34px;
+		margin: 0 10px;
+		font-weight: 700;
 	}
 	.says {
 		font-style: italic;
@@ -172,6 +172,7 @@ h3#reply-title {
 	color: $pink;
 	font-weight: 700;
 }
+
 #respond {
 	label {
 		color: #888888;

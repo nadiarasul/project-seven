@@ -1,9 +1,9 @@
 header{
-	height:100vh;
+	height:80vh;
 	color:$white;
 	padding-top: 2rem;
 	.container{
-		height:100vh;
+		height:60vh;
 		display:flex;
 		flex-direction:column;
 		justify-content:space-between;
@@ -31,7 +31,7 @@ header{
 	a {
 	color: white;
 	padding: 10px;
-	font-size:1.3rem;
+	font-size:1.4rem;
 	letter-spacing: 2px;
 		&:hover {
 			color: $green;

@@ -51,6 +51,7 @@ function hackeryou_styles(){
 
 	wp_enqueue_style('opensans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,300');
 	wp_enqueue_style('featherlight', 'https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.4.1/featherlight.min.css');
+	wp_enqueue_style('jaldi', 'https://fonts.googleapis.com/css?family=Jaldi');
 }
 
 add_action( 'wp_enqueue_scripts', 'hackeryou_styles');

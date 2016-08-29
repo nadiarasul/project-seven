@@ -19,7 +19,7 @@
 
 /*
 ====================================
-Default Styling
+Default Styles
 ====================================
 */
 
@@ -31,18 +31,25 @@ img {
 	max-width: 1020px;
 	margin: 0 auto;
 }
+
+.container-secondary,
 .container-single{
-    max-width: 700px;
+	max-width: 700px;
 }
+
 .container-header{
 	max-width:1100px;
 }
+
+.container-secondary{
+	padding-top:60px;
+}
+
 .content {
 	float: left;
 	width: 100%;
-	padding-top:96px;
+	padding-top:60px;
 }
-
 
 .full {
 	width: 100%;
@@ -61,30 +68,35 @@ input[type=submit]{
 
 /*
 ====================================
-Homepage Styling
+Homepage Styles
 ====================================
 */
+
 .work-info,
 .portfolio{
 	text-align:center;
 }
+
 .work-info{
 	width:80%;
 	margin:0 auto;
 	padding-bottom:20px;
 }
+
 .works{
 	position:relative;
 }
+
 .works:before{
-  content: "";
-  position: absolute;
-  left: 20%;
-  right: 20%;
-  bottom: -25px;
-  background: lighten($gray, 60);
-  height: 1px;
+	content: "";
+	position: absolute;
+	left: 20%;
+	right: 20%;
+	bottom: -25px;
+	background: lighten($gray, 60);
+	height: 1px;
 }
+
 .portfolio {
 	width:33.33%;
 	float:left;
@@ -96,16 +108,18 @@ Homepage Styling
 		opacity:0.8;
 	}
 }
+
 .none{
 	display:none;
 }
 
 .home-posts{
 	padding:30px 0;
-		h1{
-			text-align:center;
-		}
+	h1{
+		text-align:center;
+	}
 }
+
 .home-post{
 	width:50%;
 	float:left;
@@ -114,12 +128,14 @@ Homepage Styling
 		width:100%;
 	}
 }
+
 .large{
+	margin:2rem 0;
 	padding:10px 20px;
 	color:$white;
-	letter-spacing:1px;
+	letter-spacing:0.2rem;
 	background: transparent;
-	font-size:18px;
+	font-size:15px;
 	text-transform:uppercase;
 	border: 2px solid $white;
 	transition: all 0.3s ease;
@@ -128,11 +144,13 @@ Homepage Styling
 		border: 2px solid $green;
 	}
 }
+
 /*
 ====================================
-Posts Page Styling
+Posts Page Styles
 ====================================
 */
+
 .post-image{
 	width:50%;
 	img{
@@ -140,6 +158,7 @@ Posts Page Styling
 	}
 
 }
+
 .post-details{
 	width:50%;
 	padding: 3% 0 1% 3%; 
@@ -168,9 +187,10 @@ Posts Page Styling
 .pagination{
 	margin:2rem 0;
 }
+
 /*
 ====================================
-Single Post Styling
+Single Post Styles
 ====================================
 */
 
@@ -199,7 +219,64 @@ Single Post Styling
 
 /*
 ====================================
-Form Styling
+Search Styles
+====================================
+*/
+
+.search-title{
+	margin-bottom:5%;
+}
+.search{
+	
+	font-size:1.3rem;
+}
+
+.fa-search{
+	position:absolute;
+	right:17px;
+	top:9px;
+}
+
+input[type=search]{
+	position:relative;
+	font-size:1.5rem;
+	letter-spacing:0.5px;
+	background:transparent;
+	padding:6px 10px;
+	border:2px solid darken($green, 10);
+	outline:none;
+	background: url('images/search.png') no-repeat;
+	background-position: 90%,center;
+	background-size:16px;
+	&:active,
+	&:focus{
+		border:2px solid lighten($green,25);
+	}
+}
+
+input[type=search]::-webkit-input-placeholder {
+	color: $gray;
+	opacity:0.6;
+}
+
+input[type=search]:-moz-placeholder { /* Firefox 18- */
+	color: $gray;
+	opacity:0.7;
+}
+
+input[type=search]::-moz-placeholder {  /* Firefox 19+ */
+	color: $gray;  
+	opacity:0.7;   
+}
+
+input[type=search]:-ms-input-placeholder {  
+	color: $gray; 
+	opacity:0.7;
+}
+
+/*
+====================================
+Form Styles
 ====================================
 */
 
@@ -216,17 +293,17 @@ div.wpcf7 {
 
 /*
 ====================================
-Fade In Styling
+Fade In Styles
 ====================================
 */
 
 .social-links{
-    opacity:1;
+	opacity:1;
 }
 
 /*
 ====================================
-Map Styling
+Map Styles
 ====================================
 */
 
